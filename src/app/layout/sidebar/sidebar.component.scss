@@ -1,12 +1,20 @@
+:host {
+  display: block;
+}
+
 .sidebar {
-  width: 240px;
-  min-height: 100vh;
-  box-sizing: border-box;
-
-  background: #172554;
-  color: white;
-
-  padding: 24px 16px;
+position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 1000;
+    background: #172554;
+    padding: 30px;
+    color: #fff;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
 .brand {
@@ -19,6 +27,7 @@
   h2 {
     margin: 0;
     font-size: 20px;
+    line-height: normal;
   }
 
   span {
