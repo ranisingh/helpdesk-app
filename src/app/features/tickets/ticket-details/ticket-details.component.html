@@ -1,0 +1,108 @@
+
+
+@if (ticket(); as currentTicket) {
+
+  <section class="ticket-details">
+
+    <a routerLink="/tickets">
+      ← Back to Tickets
+    </a>
+
+    <h1>{{ currentTicket.title }}</h1>
+
+    <p>
+      Ticket #{{ currentTicket.id }}
+    </p>
+
+    <div class="details-card">
+
+      <h3>Description</h3>
+
+      <p>{{ currentTicket.description }}</p>
+
+      <h3>Category</h3>
+
+      <p>{{ currentTicket.category }}</p>
+
+      <h3>Created By</h3>
+
+      <p>{{ currentTicket.createdBy }}</p>
+
+     <!-- ASSIGNED TO -->
+
+      <h3>Assigned To</h3>
+
+      <select
+        [ngModel]="assignedToUserId()"
+        (ngModelChange)="assignedToUserId.set($event)"
+      >
+
+        <option [ngValue]="undefined">
+          Unassigned
+        </option>
+
+        @for (
+          user of userStore.users();
+          track user.id
+        ) {
+
+          @if (
+            user.active &&
+            user.role === 'Support Agent' || user.role === 'Admin'
+          ) {
+
+            <option [ngValue]="user.id">
+              {{ user.name }}
+            </option>
+
+          }
+
+        }
+
+      </select>
+      <h3>Status</h3>
+
+      <select
+        [ngModel]="status()"
+        (ngModelChange)="status.set($event)"
+      >
+        <option value="Open">Open</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Resolved">Resolved</option>
+        <option value="Closed">Closed</option>
+      </select>
+
+      <h3>Priority</h3>
+
+      <select
+        [ngModel]="priority()"
+        (ngModelChange)="priority.set($event)"
+      >
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+        <option value="Critical">Critical</option>
+      </select>
+
+      <div class="actions">
+        <button
+          type="button"
+          (click)="saveChanges()"
+        >
+          Save Changes
+        </button>
+      </div>
+
+    </div>
+
+  </section>
+
+} @else {
+
+  <h2>Ticket not found</h2>
+
+  <a routerLink="/tickets">
+    Return to Tickets
+  </a>
+
+}

@@ -1,0 +1,229 @@
+<section class="ticket-page">
+
+  <div class="page-header">
+
+    <div>
+      <h1>Tickets</h1>
+
+      <p>
+        Manage and monitor support requests
+      </p>
+    </div>
+
+   <a
+  routerLink="/tickets/new"
+  class="primary-button"
+>
+  + Create Ticket
+</a>
+
+  </div>
+
+
+  <div class="filters">
+
+    <div class="search-box">
+
+      <label for="search">
+        Search
+      </label>
+
+      <input
+        id="search"
+        type="text"
+        placeholder="Search tickets..."
+        [value]="ticketStore.searchTerm()"
+        (input)="onSearch($event)"
+      />
+
+    </div>
+
+
+    <div class="filter">
+
+      <label for="status">
+        Status
+      </label>
+
+      <select
+        id="status"
+        [value]="ticketStore.statusFilter()"
+        (change)="onStatusChange($event)"
+      >
+
+        <option value="All">All</option>
+
+        <option value="Open">
+          Open
+        </option>
+
+        <option value="In Progress">
+          In Progress
+        </option>
+
+        <option value="Resolved">
+          Resolved
+        </option>
+
+        <option value="Closed">
+          Closed
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <div class="filter">
+
+      <label for="priority">
+        Priority
+      </label>
+
+      <select
+        id="priority"
+        [value]="ticketStore.priorityFilter()"
+        (change)="onPriorityChange($event)"
+      >
+
+        <option value="All">All</option>
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+        <option value="Critical">Critical</option>
+
+      </select>
+
+    </div>
+
+
+    <button
+      class="clear-button"
+      (click)="clearFilters()">
+
+      Clear
+
+    </button>
+
+  </div>
+
+
+  <div class="results-info">
+
+    Showing
+
+    <strong>
+      {{ ticketStore.filteredTickets().length }}
+    </strong>
+
+    of
+
+    <strong>
+      {{ ticketStore.totalTickets() }}
+    </strong>
+
+    tickets
+
+  </div>
+
+
+  <div class="table-container">
+
+    <table>
+
+      <thead>
+
+        <tr>
+          <th>Ticket</th>
+          <th>Category</th>
+          <th>Priority</th>
+          <th>Status</th>
+          <th>Created By</th>
+          <th>Assigned To</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        @for (
+          ticket of ticketStore.filteredTickets();
+          track ticket.id
+        ) {
+
+          <tr>
+
+            <td>
+
+              <div class="ticket-title">
+
+                <strong>
+                  #{{ ticket.id }}
+                </strong>
+
+                <!--<span>
+                  {{ ticket.title }}
+                </span>-->
+
+                <a [routerLink]="['/tickets', ticket.id]">
+    {{ ticket.title }}
+  </a>
+
+              </div>
+
+            </td>
+
+            <td>
+              {{ ticket.category }}
+            </td>
+
+            <td>
+
+              <span
+                class="badge"
+                [class.critical]="ticket.priority === 'Critical'"
+                [class.high]="ticket.priority === 'High'">
+
+                {{ ticket.priority }}
+
+              </span>
+
+            </td>
+
+            <td>
+              {{ ticket.status }}
+            </td>
+
+            <td>
+              {{ ticket.createdBy }}
+            </td>
+
+            <td>
+              {{userStore.getUserName(ticket.assignedToUserId) }}
+            </td>
+
+          </tr>
+
+        } @empty {
+
+          <tr>
+
+            <td
+              colspan="6"
+              class="empty-state">
+
+              No tickets found.
+
+            </td>
+
+          </tr>
+
+        }
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</section>

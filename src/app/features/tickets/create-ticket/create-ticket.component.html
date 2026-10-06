@@ -1,0 +1,212 @@
+<section class="create-ticket">
+
+  <div class="page-header">
+
+    <div>
+
+      <h1>Create Ticket</h1>
+
+      <p>
+        Create a new helpdesk support request.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <form
+    class="ticket-form"
+    [formGroup]="ticketForm"
+    (ngSubmit)="submit()"
+  >
+
+
+    <!-- TITLE -->
+
+    <div class="form-group">
+
+      <label for="title">
+        Title
+      </label>
+
+      <input
+        id="title"
+        type="text"
+        formControlName="title"
+        placeholder="Example: Unable to access customer portal"
+      />
+
+
+      @if (
+        ticketForm.controls.title.touched &&
+        ticketForm.controls.title.hasError('required')
+      ) {
+
+        <span class="error">
+          Title is required.
+        </span>
+
+      }
+
+
+      @if (
+        ticketForm.controls.title.touched &&
+        ticketForm.controls.title.hasError('minlength')
+      ) {
+
+        <span class="error">
+          Title must contain at least 5 characters.
+        </span>
+
+      }
+
+    </div>
+
+
+    <!-- DESCRIPTION -->
+
+    <div class="form-group">
+
+      <label for="description">
+        Description
+      </label>
+
+      <textarea
+        id="description"
+        rows="6"
+        formControlName="description"
+        placeholder="Describe the problem in detail..."
+      ></textarea>
+
+
+      @if (
+        ticketForm.controls.description.touched &&
+        ticketForm.controls.description.hasError('required')
+      ) {
+
+        <span class="error">
+          Description is required.
+        </span>
+
+      }
+
+    </div>
+
+
+    <div class="form-row">
+
+
+      <!-- CATEGORY -->
+
+      <div class="form-group">
+
+        <label for="category">
+          Category
+        </label>
+
+        <select
+          id="category"
+          formControlName="category"
+        >
+
+          <option value="">
+            Select category
+          </option>
+
+          <option value="Application">
+            Application
+          </option>
+
+          <option value="Network">
+            Network
+          </option>
+
+          <option value="Email">
+            Email
+          </option>
+
+          <option value="Hardware">
+            Hardware
+          </option>
+
+          <option value="Access">
+            Access Management
+          </option>
+
+        </select>
+
+
+        @if (
+          ticketForm.controls.category.touched &&
+          ticketForm.controls.category.invalid
+        ) {
+
+          <span class="error">
+            Category is required.
+          </span>
+
+        }
+
+      </div>
+
+
+      <!-- PRIORITY -->
+
+      <div class="form-group">
+
+        <label for="priority">
+          Priority
+        </label>
+
+        <select
+          id="priority"
+          formControlName="priority"
+        >
+
+          <option value="Low">
+            Low
+          </option>
+
+          <option value="Medium">
+            Medium
+          </option>
+
+          <option value="High">
+            High
+          </option>
+
+          <option value="Critical">
+            Critical
+          </option>
+
+        </select>
+
+      </div>
+
+    </div>
+
+
+    <div class="actions">
+
+      <button
+        type="button"
+        class="cancel-button"
+        (click)="cancel()"
+      >
+        Cancel
+      </button>
+
+
+      <button
+        type="submit"
+        class="submit-button"
+      >
+        Create Ticket
+      </button>
+
+    </div>
+
+  </form>
+
+</section>

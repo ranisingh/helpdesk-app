@@ -1,0 +1,158 @@
+.users-page {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* =========================
+   PAGE HEADER
+========================= */
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 24px;
+
+  h1 {
+    margin: 0;
+
+    font-size: 28px;
+    font-weight: 700;
+
+    color: #111827;
+  }
+
+  p {
+    margin: 6px 0 0;
+
+    font-size: 14px;
+
+    color: #6b7280;
+  }
+}
+
+/* =========================
+   TABLE CONTAINER
+========================= */
+
+.table-container {
+  overflow-x: auto;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+table {
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+thead {
+  background: #f9fafb;
+}
+
+th {
+  padding: 14px 18px;
+
+  text-align: left;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  color: #6b7280;
+
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+td {
+  padding: 16px 18px;
+
+  font-size: 14px;
+
+  color: #374151;
+
+  border-bottom: 1px solid #f3f4f6;
+}
+
+tbody tr {
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: #f9fafb;
+  }
+
+  &:last-child td {
+    border-bottom: none;
+  }
+}
+
+/* =========================
+   USER NAME
+========================= */
+
+td:first-child {
+  font-weight: 600;
+
+  color: #111827;
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.active,
+.inactive {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 4px 10px;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.active {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.inactive {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  .page-header {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 16px;
+  }
+
+  th,
+  td {
+    padding: 12px 14px;
+  }
+
+  table {
+    min-width: 650px;
+  }
+}

@@ -1,0 +1,87 @@
+<section class="dashboard">
+
+  <div class="dashboard-header">
+
+    <div>
+      <h1>Dashboard</h1>
+
+      <p>
+        Overview of helpdesk activity
+      </p>
+    </div>
+
+  </div>
+
+
+  <div class="stats-grid">
+
+    <article class="stat-card">
+
+      <span class="label">
+        Total Tickets
+      </span>
+
+      <strong>
+        {{ ticketStore.totalTickets() }}
+      </strong>
+
+    </article>
+
+
+    <article class="stat-card">
+
+      <span class="label">
+        Open
+      </span>
+
+      <strong>
+        {{ ticketStore.openTickets() }}
+      </strong>
+
+    </article>
+
+
+    <article class="stat-card">
+
+      <span class="label">
+        In Progress
+      </span>
+
+      <strong>
+        {{ ticketStore.inProgressTickets() }}
+      </strong>
+
+    </article>
+
+
+    <article class="stat-card">
+
+      <span class="label">
+        Resolved
+      </span>
+
+      <strong>
+        {{ ticketStore.resolvedTickets() }}
+      </strong>
+
+    </article>
+
+
+    <article class="stat-card">
+
+      <span class="label">
+        High Priority
+      </span>
+
+      <strong>
+        {{ ticketStore.highPriorityTickets() }}
+      </strong>
+
+    </article>
+
+  </div>
+
+
+  
+
+</section>

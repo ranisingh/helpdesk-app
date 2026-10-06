@@ -1,0 +1,56 @@
+.header {
+  height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 28px;
+
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.page-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.user-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.notification {
+  border: none;
+  background: transparent;
+
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: #172554;
+  color: white;
+
+  font-weight: 600;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+
+  span {
+    color: #6b7280;
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,116 @@
+.create-ticket {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 24px;
+
+  h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #111827;
+  }
+
+  p {
+    margin-top: 6px;
+    color: #6b7280;
+  }
+}
+
+.ticket-form {
+  padding: 28px;
+
+  background: white;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 22px;
+
+  label {
+    margin-bottom: 7px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #374151;
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 11px 12px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+
+    &:focus {
+      border-color: #172554;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+}
+
+.form-row {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+.error {
+  margin-top: 5px;
+
+  color: #dc2626;
+
+  font-size: 12px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 12px;
+
+  padding-top: 10px;
+}
+
+.cancel-button,
+.submit-button {
+  padding: 11px 18px;
+
+  border-radius: 7px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.cancel-button {
+  background: white;
+
+  border: 1px solid #d1d5db;
+}
+
+.submit-button {
+  background: #172554;
+  color: white;
+
+  border: none;
+}

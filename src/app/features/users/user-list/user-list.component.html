@@ -1,0 +1,74 @@
+<section class="users-page">
+
+  <div class="page-header">
+
+    <div>
+      <h1>Users</h1>
+
+      <p>
+        Manage helpdesk users and support agents.
+      </p>
+    </div>
+
+  </div>
+
+
+  <div class="table-container">
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        @for (
+          user of userStore.users();
+          track user.id
+        ) {
+
+          <tr>
+
+            <td>
+              {{ user.name }}
+            </td>
+
+            <td>
+              {{ user.email }}
+            </td>
+
+            <td>
+              {{ user.role }}
+            </td>
+
+            <td>
+
+              @if (user.active) {
+                <span class="active">
+                  Active
+                </span>
+              } @else {
+                <span class="inactive">
+                  Inactive
+                </span>
+              }
+
+            </td>
+
+          </tr>
+
+        }
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</section>
